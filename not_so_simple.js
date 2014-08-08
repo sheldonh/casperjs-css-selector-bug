@@ -7,10 +7,17 @@ casper.test.begin("CSS selector for selected option", 2, function(test) {
   casper.start(uri, function() {
     var page = this;
 
-    var jquery_finds_selected_option = page.evaluate(function() { return $('#payment_interval option[value="annual"]:selected').length > 0; });
-    test.assert(jquery_finds_selected_option, 'JQuery finds selected option');
+    test.assertExists({
+      type: 'xpath',
+      path: '//select[@id="payment_interval"]/option[@selected and @value="annual"]',
+    }, 'CasperJS XPath selector finds selected option');
 
-    test.assertExists('#payment_interval option[value="annual"]:selected', 'CasperJS finds selected option');
+    var jquery_finds_selected_option = page.evaluate(function() {
+      return $('#payment_interval option[value="annual"]:selected').length > 0;
+    });
+    test.assert(jquery_finds_selected_option, 'JQuery CSS selector finds selected option');
+
+    test.assertExists('#payment_interval option[value="annual"]:selected', 'CasperJS CSS selector finds selected option');
 
     test.done();
   });
