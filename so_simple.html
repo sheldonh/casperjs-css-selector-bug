@@ -1,0 +1,33 @@
+<html>
+
+<head>
+<script src="jquery-1.11.1.min.js" language="JavaScript" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+
+  $(document).on('ready', function() {
+
+    setTimeout(function() {
+
+      $('#payment_interval').append('<option value="monthly">Monthly</option>');
+      $('#payment_interval').append('<option value="quarterly">Quarterly</option>');
+      $('#payment_interval').append('<option value="biannual">Bi-Annual</option>');
+      $('#payment_interval').append('<option value="annual">Annual</option>');
+
+      $('#payment_interval').on('change', function() {
+        $(this).val('annual');
+      });
+
+      $('#payment_interval').change();
+
+    }, 500);
+
+  });
+
+</script>
+</head>
+
+<body>
+  <select id="payment_interval">
+  </select>
+</body>
+</html>
