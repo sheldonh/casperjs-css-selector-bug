@@ -8,5 +8,5 @@ cd casperjs-css-selector-bug
 casperjs test not_so_simple.js
 ```
 
-Reported: https://github.com/n1k0/casperjs/issues/1000
-Resolution: The casperjs maintainer educated me: `:selected` is non-standard.
+* Reported: https://github.com/n1k0/casperjs/issues/1000
+* Resolution: The casperjs maintainer educated me: `:selected` is non-standard.
